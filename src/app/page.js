@@ -7,7 +7,6 @@ import React from 'react'
 import ProtegoFeatures from '@/components/custom/Features'
 import CookieConsent from '@/components/custom/CookieConsent'
 import ProtegoAppFeatures from '@/components/custom/Appfeatures'
-import { motion } from "framer-motion";
 import WhyProtego from '@/components/custom/Whyprotego'
 import HowItWorks from '@/components/custom/Howitworks'
 import FeatureSlider from '@/components/custom/Whichone'

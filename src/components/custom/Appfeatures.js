@@ -7,7 +7,7 @@ import { FaCar } from "react-icons/fa";
 import { AiOutlineSafety } from "react-icons/ai";
 import { GoAlertFill } from "react-icons/go";
 
-const features = [
+const appfeatures = [
   {
     id: "emergency",
     title: "Emergency Alert",
@@ -68,7 +68,7 @@ export default function ProtegoFeatures() {
 
             {/* Feature cards list */}
             <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-6">
-              {features.map((f) => (
+              {appfeatures.map((f) => (
                 <article
                   key={f.id}
                   className="flex items-start gap-4 p-4 bg-white rounded-2xl shadow-sm hover:shadow-md transition-shadow"

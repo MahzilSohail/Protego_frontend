@@ -2,7 +2,6 @@
 import React, { useState } from "react";
 import { FaBars, FaTimes, FaChevronDown } from "react-icons/fa";
 import { IoSearch, IoBagOutline } from "react-icons/io5";
-import Cart from "./Cart";
 import Link from "next/link";
 import { VscAccount } from "react-icons/vsc";
 import { useCart } from "@/context/CartContext";
@@ -129,12 +128,14 @@ function Navbar() {
           </button>
 
           {/* Center: Logo */}
-          <div className="flex justify-center">
-            <img
+          <div className="grid grid-cols-1">
+            <span className="text-[22px] font-bold text-blue-900 flex justify-center items-center">PROTEGO</span>
+            <span className="text-[16px] text-blue-900">Protection on the Go </span>
+            {/* <img
               src="/logo.jpg"
               alt="Protego"
               className="w-14 h-14 rounded-full"
-            />
+            /> */}
           </div>
 
           {/* Right: Search & Cart Icons */}

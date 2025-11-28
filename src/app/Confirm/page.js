@@ -26,7 +26,7 @@ export default function OrderConfirmationPage() {
       </h2>
       <p className="text-gray-700 max-w-md mb-6">
         We’ve received your order and are now processing it. Keep an eye on your
-        inbox for a confirmation email at{" "}
+        inbox for a confirmation.{" "}
         {/* <span className="font-semibold text-black">{order.email}</span>. */}
       </p>
 

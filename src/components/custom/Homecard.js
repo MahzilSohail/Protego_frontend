@@ -6,7 +6,8 @@ import { model } from "@/model";
 
 function Homecard() {
   return (
-    <div>
+    <div
+    >
       <div className="w-full h-[60vh] md:h-[70vh] lg:h-[90vh] bg-gray-500 flex justify-center items-center">
         Video
       </div>
@@ -16,7 +17,7 @@ function Homecard() {
       </h2>
 
       <div className="flex justify-center items-center py-24">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {model.map((products) => (
             <div
               key={products.id}

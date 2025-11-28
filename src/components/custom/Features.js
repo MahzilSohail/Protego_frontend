@@ -33,8 +33,11 @@ const features = [
 
 export default function ProtegoFeatures() {
   return (
-    <div className="min-h-screen  text-blue-900 flex flex-col items-center py-16 px-6"
-    >
+    <motion.div className="min-h-screen  text-blue-900 flex flex-col items-center py-16 px-6"
+    initial={{ opacity: 0, y: 50 }}           
+      whileInView={{ opacity: 1, y: 0 }}         
+      viewport={{ once: false, amount: 0.4 }}    
+      transition={{ duration: 0.8, ease: "easeOut" }}>
       
       {/* Title Section */}
       <h1
@@ -75,6 +78,6 @@ export default function ProtegoFeatures() {
           Experience <span className="font-bold text-blue-900">Protego</span> — your invisible guardian for every step you take.
         </p>
       </motion.div>
-    </div>
+    </motion.div>
   );
 }

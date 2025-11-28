@@ -8,7 +8,7 @@ import React from 'react'
 function Stdmodel() {
   return (
     <div>
-        {/* <Navbar/> */}
+        <Navbar/>
         {/* <Stdmodelcard/> */}
         <Productcardstd/>
         <WhatsAppButton/>

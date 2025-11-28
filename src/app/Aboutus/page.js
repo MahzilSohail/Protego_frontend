@@ -7,7 +7,7 @@ import React from 'react'
 function Aboutus() {
   return (
     <div>
-      {/* <Navbar/> */}
+      <Navbar/>
       <About/>
       <WhatsAppButton/>
       <Footer/>

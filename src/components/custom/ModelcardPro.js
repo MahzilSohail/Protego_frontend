@@ -41,53 +41,86 @@ export default function Productcardpro() {
         />
       </svg>
 
-      {/* Horizontal Scroll Area */}
-      <motion.div
-        ref={scrollRef}
-        style={{ maskImage }}
-        className="flex gap-10 pr-10 snap-x snap-mandatory overflow-x-auto no-scrollbar w-full"
-      >
-        {pro.map((item) => (
-          <div
-            key={item.id}
-            className="snap-center min-w-[30vw] max-w-[40vw] bg-white rounded-3xl shadow-xl border border-gray-200 transition-transform hover:scale-[1.02]"
-          >
-            <div className="flex justify-center items-center p-4 relative">
-              <Link href={`/Detailpro/`}>
-                <div className={`w-60 h-60 rounded-xl bg-center bg-cover 
-                  ${item.id === 1 ? "anim1" : ""}
-                  ${item.id === 2 ? "anim2" : ""}
-                  ${item.id === 3 ? "anim3" : ""}
-                  ${item.id === 4 ? "anim4" : ""}
-                  ${item.id === 5 ? "anim5" : ""}
-                `}
-                />
-                {/* <img
-                  src="/protegoring.jpg"
-                  className="w-48 h-48 object-contain"
-                  alt={item.name}
-                /> */}
-              </Link>
+      {/* Horizontal Scroll Area With Arrows */}
+      <div className="relative w-full">
 
-              <div className="absolute bottom-4 right-4 w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center shadow-md">
-                <button onClick={() => { addToCart(item) }}>
-                  <IoAddOutline className="text-blue-700 text-3xl" />
-                </button>
+        {/* Left Arrow */}
+        <button
+          onClick={() => {
+            if (scrollRef.current) {
+              scrollRef.current.scrollBy({ left: -600, behavior: "smooth" });
+            }
+          }}
+          className="absolute left-[-50px] top-1/2 -translate-y-1/2 z-40
+      bg-white shadow-lg w-12 h-12 rounded-full flex items-center justify-center
+      hover:bg-gray-100 hover:shadow-xl transition"
+        >
+          <span className="text-4xl text-gray-700">‹</span>
+        </button>
+
+        {/* Scroll container */}
+        <motion.div
+          ref={scrollRef}
+          style={{ maskImage }}
+          className="flex gap-10 pr-10 snap-x snap-mandatory overflow-x-auto no-scrollbar w-full"
+        >
+          {pro.map((item) => (
+            <div
+              key={item.id}
+              className="snap-center min-w-[30vw] max-w-[40vw] bg-white rounded-3xl shadow-xl border border-gray-200 transition-transform hover:scale-[1.02]"
+            >
+              <div className="flex justify-center items-center p-4 relative">
+
+                <Link href={`/Detailpro/`}>
+                  <div
+                    className={`w-60 h-60 rounded-xl bg-center bg-cover 
+                ${item.id === 1 ? "anim1" : ""}
+                ${item.id === 2 ? "anim2" : ""}
+                ${item.id === 3 ? "anim3" : ""}
+                ${item.id === 4 ? "anim4" : ""}
+                ${item.id === 5 ? "anim5" : ""}
+              `}
+                  />
+                </Link>
+
+                <div className="absolute bottom-4 right-4 w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center shadow-md">
+                  <button
+                    onClick={() => {
+                      addToCart(item);
+                    }}
+                  >
+                    <IoAddOutline className="text-blue-700 text-3xl" />
+                  </button>
+                </div>
+              </div>
+
+              <div className="flex flex-col items-center p-6 bg-gradient-to-b from-white to-blue-100">
+                <h2 className="text-2xl font-semibold">{item.name}</h2>
+                <p className="text-gray-600 text-lg font-medium">{item.price}</p>
+
+                <div
+                  className="w-8 h-8 mt-3 border-2 border-gray-400"
+                  style={{ backgroundColor: item.color }}
+                />
               </div>
             </div>
+          ))}
+        </motion.div>
 
-            <div className="flex flex-col items-center p-6 bg-gradient-to-b from-white to-blue-100">
-              <h2 className="text-2xl font-semibold">{item.name}</h2>
-              <p className="text-gray-600 text-lg font-medium">{item.price}</p>
-
-              <div
-                className="w-8 h-8 mt-3 border-2 border-gray-400"
-                style={{ backgroundColor: item.color }}
-              />
-            </div>
-          </div>
-        ))}
-      </motion.div>
+        {/* Right Arrow */}
+        <button
+          onClick={() => {
+            if (scrollRef.current) {
+              scrollRef.current.scrollBy({ left: 600, behavior: "smooth" });
+            }
+          }}
+          className="absolute right-[-50px] top-1/2 -translate-y-1/2 z-40
+      bg-white shadow-lg w-12 h-12 rounded-full flex items-center justify-center
+      hover:bg-gray-100 hover:shadow-xl transition"
+        >
+          <span className="text-4xl text-gray-700">›</span>
+        </button>
+      </div>
 
       <ScrollStyles />
     </div>

@@ -1,6 +1,7 @@
 "use client";
-import React from "react";
-import Navbar from '@/components/custom/Navbar'
+// import React from "react";
+import React, { useState } from "react";
+
 import Footer from '@/components/custom/Footer'
 import {
   FaInstagram,
@@ -11,11 +12,35 @@ import {
   FaMapMarkerAlt,
 } from "react-icons/fa";
 import WhatsAppButton from "@/components/custom/Whatsappbtn";
+import Navbar from "@/components/custom/Navbar";
 
 function Contact() {
+  const [fullName, setFullName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    if (!fullName || !email || !message) {
+      alert("Please fill all fields before submitting.");
+      return;
+    }
+
+    // If all fields are filled, send the data (dummy success message for now)
+    alert("Your message has been sent successfully.");
+
+    // After sending, clear fields
+    setFullName("");
+    setEmail("");
+    setMessage("");
+  };
+
+
+
   return (
     <div>
-<WhatsAppButton/>
+    <Navbar/>
+      <WhatsAppButton />
       <div className="min-h-screen bg-white flex flex-col items-center justify-center py-12 px-5">
         {/* Heading Section */}
         <div className="text-center pt-20 pb-10 max-w-2xl mb-10">
@@ -23,17 +48,19 @@ function Contact() {
             Get In Touch For Enquires & Offers
           </h1>
           <p className="text-gray-700">
-            Have questions or feedback? <span className="font-medium text-blue-900">Protego</span> is here to help!  
+            Have questions or feedback? <span className="font-medium text-blue-900">Protego</span> is here to help!
             Contact us using the form below, and our team will get back to you soon.
           </p>
         </div>
 
         {/* Contact Form */}
-        <form className="w-full max-w-md space-y-5">
+        <form onSubmit={handleSubmit} className="w-full max-w-md space-y-5">
           <div>
             <label className="block text-gray-700 font-medium mb-1">Full Name</label>
             <input
               type="text"
+              value={fullName}
+              onChange={(e) => setFullName(e.target.value)}
               placeholder="Enter your name"
               className="w-full border border-gray-300 rounded-md p-2 outline-none focus:ring-2 focus:ring-blue-800"
             />
@@ -43,6 +70,8 @@ function Contact() {
             <label className="block text-gray-700 font-medium mb-1">Email</label>
             <input
               type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               placeholder="Enter your email"
               className="w-full border border-gray-300 rounded-md p-2 outline-none focus:ring-2 focus:ring-blue-800"
             />
@@ -52,6 +81,8 @@ function Contact() {
             <label className="block text-gray-700 font-medium mb-1">Message</label>
             <textarea
               rows="4"
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
               placeholder="Write your message..."
               className="w-full border border-gray-300 rounded-md p-2 outline-none focus:ring-2 focus:ring-blue-800"
             ></textarea>

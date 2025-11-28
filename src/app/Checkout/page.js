@@ -1,5 +1,6 @@
 "use client";
 import Footer from "@/components/custom/Footer";
+import Navbar from "@/components/custom/Navbar";
 import { useCart } from "@/context/CartContext";
 import Link from "next/link";
 import { useState } from "react";
@@ -11,6 +12,7 @@ export default function CheckoutPage() {
 
   return (
     <div>
+    <Navbar/>
     <div className="max-w-4xl mx-auto mt-28 px-6 pb-20">
       <h1 className="text-3xl font-semibold mb-6 text-blue-900">Checkout</h1>
 
@@ -50,6 +52,11 @@ export default function CheckoutPage() {
             <h2 className="text-xl font-medium mb-3">Shipping Information</h2>
 
             <form className="space-y-3">
+              <input
+                type="email"
+                placeholder="Email"
+                className="w-full border p-2 rounded"
+              />
               <input
                 type="text"
                 placeholder="Full Name"

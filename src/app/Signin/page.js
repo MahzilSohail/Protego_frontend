@@ -7,7 +7,7 @@ import React from 'react'
 function Signin() {
   return (
     <div>
-      {/* <Navbar/> */}
+      <Navbar/>
       <SignIn/>
       <WhatsAppButton/>
       <Footer/>
